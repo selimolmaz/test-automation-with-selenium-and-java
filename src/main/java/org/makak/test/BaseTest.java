@@ -14,26 +14,25 @@ import org.testng.annotations.BeforeMethod;
 public abstract class BaseTest {
 
     protected WebDriver driver;
+    protected final String BASE_URL = "https://www.saucedemo.com/";
 
     @BeforeMethod
     public void setUp() {
         driver = DriverManager.getDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
+        driver.get(BASE_URL);
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
-            // Test başarısız olduğunda ekran görüntüsü al
             saveScreenshot(driver);
         }
         DriverManager.quitDriver();
     }
 
-    @Attachment(value = "Ekran Görüntüsü", type = "image/png")
+    @Attachment(value = "Save Screenshot", type = "image/png")
     public byte[] saveScreenshot(WebDriver driver) {
-        // TakesScreenshot arayüzünü kullanarak ekran görüntüsünü al
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
