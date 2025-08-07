@@ -1,8 +1,3 @@
-
-# Project Documentation
-
-## I will now provide a detailed explanation of the project, including its architecture, data handling, reporting, design patterns, and setup instructions.
-
 ### Project Overview
 This project is a test automation framework for the [saucedemo](https://www.saucedemo.com/) website, built using Java, Selenium, TestNG, and Allure. Its primary goal is to test the login functionality of the application. The framework is designed with a focus on maintainability, scalability, and detailed reporting.
 
